@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://quadjr.github.io/aframe-gaussian-splatting/index.js"></script>
+
+  </head>
+  <body>
+    <a-scene renderer="antialias: false" stats>
+        <script>
+        
+            const urlParams = new URLSearchParams(window.location.search);
+            const url = urlParams.get('url');
+            const rot = urlParams.get('rot');
+            console.log(rot);
+            const src = "src: "+url
+            const el = document.createElement('a-entity');
+            el.setAttribute('gaussian_splatting', src);
+            if(rot!=null){
+            el.setAttribute('rotation',rot);
+            console.log(rot);
+            }else{
+            el.setAttribute('rotation',"0 0 0");
+            }
+            el.setAttribute('position',"0 1.5 0");
+            document.querySelector('a-scene').appendChild(el);
+            
+        </script>
+      </a-scene>
+    
+
+  </body>
+</html>
