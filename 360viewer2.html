@@ -40,7 +40,7 @@ document.addEventListener('mousemove', (e) => {
   // 비디오 전체 길이
   const duration = video.duration;
   // 새로운 시킹 위치
-  let nextTime = startTime + fraction * duration;
+  let nextTime = startTime - fraction * duration;
   // loop 돌리려면 아래처럼
   if (nextTime < 0) nextTime = duration + (nextTime % duration);
   if (nextTime > duration) nextTime = nextTime % duration;
